@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 300px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+    <title>Home</title>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slides">
+          <div class="slide">Slide 1</div>
+          <div class="slide">Slide 2</div>
+          <div class="slide">Slide 3</div>
+          <!-- Adicione mais slides conforme necessário -->
+        </div>
+    </div>
+    <script>
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        let currentIndex = 0;
+        let startX = 0;
+        let isDragging = false;
+
+        function goToSlide(index) {
+            slides.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(currentIndex);
+        }
+
+        function previousSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            goToSlide(currentIndex);
+        }
+
+        function startAutoSlide() {
+            setInterval(nextSlide, 5000); // Muda de slide a cada 5 segundos
+        }
+
+        // Eventos de toque (swipe)
+        slides.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        slides.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                let currentX = e.touches[0].clientX;
+                let difference = startX - currentX;
+
+                if (difference > 50) {
+                    nextSlide();
+                    isDragging = false;
+                } else if (difference < -50) {
+                    previousSlide();
+                    isDragging = false;
+                }
+            }
+        });
+
+        slides.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Inicia o slide automático
+        startAutoSlide();
+    </script>
+</body>
+</html>
