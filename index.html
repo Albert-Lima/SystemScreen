@@ -38,56 +38,69 @@
     </div>
     <script>
         const slides = document.querySelector('.slides');
-        const totalSlides = document.querySelectorAll('.slide').length;
-        let currentIndex = 0;
-        let startX = 0;
-        let isDragging = false;
+const totalSlides = document.querySelectorAll('.slide').length;
+let currentIndex = 0;
+let startX = 0;
+let isDragging = false;
+let autoSlideInterval;
 
-        function goToSlide(index) {
-            slides.style.transform = `translateX(${-index * 100}%)`;
-        }
+// Função para navegar para um slide específico
+function goToSlide(index) {
+  slides.style.transform = `translateX(${-index * 100}%)`;
+}
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            goToSlide(currentIndex);
-        }
+// Função para avançar para o próximo slide
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  goToSlide(currentIndex);
+}
 
-        function previousSlide() {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            goToSlide(currentIndex);
-        }
+// Função para retornar ao slide anterior
+function previousSlide() {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  goToSlide(currentIndex);
+}
 
-        function startAutoSlide() {
-            setInterval(nextSlide, 5000); // Muda de slide a cada 5 segundos
-        }
+// Função para iniciar o avanço automático dos slides
+function startAutoSlide() {
+  autoSlideInterval = setInterval(nextSlide, 3000); // Muda de slide a cada 3 segundos
+}
 
-        // Eventos de toque (swipe)
-        slides.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
+// Função para reiniciar o temporizador de avanço automático
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  startAutoSlide();
+}
 
-        slides.addEventListener('touchmove', (e) => {
-            if (isDragging) {
-                let currentX = e.touches[0].clientX;
-                let difference = startX - currentX;
+// Eventos de toque (swipe) para navegação manual
+slides.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
 
-                if (difference > 50) {
-                    nextSlide();
-                    isDragging = false;
-                } else if (difference < -50) {
-                    previousSlide();
-                    isDragging = false;
-                }
-            }
-        });
+slides.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    let currentX = e.touches[0].clientX;
+    let difference = startX - currentX;
 
-        slides.addEventListener('touchend', () => {
-            isDragging = false;
-        });
+    if (difference > 50) {
+      nextSlide();
+      isDragging = false;
+      resetAutoSlide(); // Reinicia o temporizador após mudança manual
+    } else if (difference < -50) {
+      previousSlide();
+      isDragging = false;
+      resetAutoSlide(); // Reinicia o temporizador após mudança manual
+    }
+  }
+});
 
-        // Inicia o slide automático
-        startAutoSlide();
+slides.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+// Inicia o slide automático
+startAutoSlide();
     </script>
 </body>
 </html>
