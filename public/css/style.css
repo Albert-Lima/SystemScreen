@@ -60,6 +60,7 @@ body{
 }
 .DescSlide p{
     color: #FFFFFF;
+    max-width: 70%;
 }
 
 
