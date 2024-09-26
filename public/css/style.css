@@ -2,6 +2,20 @@
     margin: 0px;
     padding: 0px;
 }
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+    --var-Font1: "Inter", system-ui;
+    --var-Font2: "Open Sans", system-ui;
+    --var-ColorBaseClear: #2C7592;
+    --var-ColorBaseDark2: #18536a;
+    --var-ColorTilte: #FF9900;
+    --var-ColorDesc: #FFFFFF;
+    --Var-ColorLettersButton: white;
+}
+
+
 
 body{
     display: flex;
@@ -34,9 +48,9 @@ body{
     content: "";
     position: absolute;
     bottom: 0px;
-    height: 80vh;
+    height: 100vh;
     width: 100%;
-    background-image: linear-gradient(to top, black , rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to top, black , rgba(0, 0, 0, 0));
     z-index: 1;
 }
 .imgProduto{
@@ -45,9 +59,9 @@ body{
     object-fit: cover;
 }
 .DescSlide{
-    height: 30vh;
+    height: max-content;
     position: absolute;
-    top: 70vh;
+    bottom: 100px;
     left: 100px;
     display: flex;
     flex-direction: column;
@@ -56,19 +70,19 @@ body{
     z-index: 2;
 }
 .DescSlide h1{
-    color: #FF9900;
+    color: var(--var-ColorTilte);
+    font-family: var(--var-Font1);
 }
 .DescSlide p{
-    color: #FFFFFF;
+    color: var(--var-ColorDesc);
     max-width: 70%;
+    font-family: var(--var-Font2);
 }
-
-
 
 .enter-container{
     height: 100vh;
     width: 15%;
-    background-color: #2C7592;
+    background-color: var(--var-ColorBaseClear);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,12 +106,48 @@ body{
     padding-bottom: 20px;
 }
 #enter-button:hover{
-    background-color: #18536a;
+    background-color: var(--var-ColorBaseDark2);
 }
 #enter-button img{
-    height: 50px
+    height: 50px;
 }
 #enter-button span{
     color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--var-Font2);
+}
+
+
+/*RESPONSIVIDADE*/
+@media (max-height: 490px) {
+    .DescSlide h1{
+        font-size: 25pt;
+    }
+    .DescSlide p{
+        font-size: 15pt;
+    }
+}
+@media (max-height: 340px){
+    .DescSlide{
+        bottom: 50px;
+        left: 50px;
+    }
+    .DescSlide h1{
+        font-size: 20pt;
+    }
+    .DescSlide p{
+        font-size: 13pt;
+    }
+}
+@media (max-width: 870px){
+    #enter-button img{
+        height: 30px;
+    }
+    #enter-button span{
+        font-size: 10pt;
+    }
+}
+@media (max-width: 650px){
+    #enter-button span{
+        display: none;
+    }
 }
