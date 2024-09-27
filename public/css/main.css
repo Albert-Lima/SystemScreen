@@ -1,0 +1,102 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+    --var-Font1: "Inter", system-ui;
+    --var-Font2: "Open Sans", system-ui;
+    --var-ColorBaseClear: #2C7592;
+    --var-ColorBaseDark1: #102332;
+    --var-ColorBaseDark2: #18536a;
+    --var-ColorBorderMenu: #3C5365;
+    --var-ColorTilte: #FF9900;
+    --var-ColorDesc: #FFFFFF;
+    --Var-ColorLettersButton: white;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+aside{
+    background-color: var(--var-ColorBaseDark1);
+    border-right: 2px solid var(--var-ColorBorderMenu);
+    width: 25%;
+    height: 100vh;
+}
+aside header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+aside header a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-decoration: none;
+    color: white;
+}
+aside header a img{
+    height: 50px;
+}
+aside header a div{
+    text-align: center;
+    font-size: 18pt;
+}
+
+aside nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 50px;
+    height: calc(100% - 150px);
+    overflow-y: scroll;
+}
+aside nav ul{
+    list-style-type: none;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.container-categoria{
+    display: flex;
+    flex: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--var-ColorBorderMenu);
+    width: 90%
+}
+
+
+.categoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: none;
+    border: none;
+}
+
+
+main{
+    width: calc(100% - 150px);
+    height: 100vh;
+}
