@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="additemsmenu.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <title>Faça seu pedido</title>
 </head>
@@ -19,7 +20,7 @@
         <nav>
             <ul><!--Aqui dentro serão adicionadas as categorias dinamicamente-->
                 <li class="container-categoria">
-                    <button class="categoria selected">
+                    <button class="categoria categoria-selected">
                         <div class="border-icon-categoria">
                             <div class="container-icon-categoria">
                                 <img src="img/icons8-talheres-100 (1).png" alt="icone do menu">
@@ -82,7 +83,27 @@
         </nav><!--será onde ficarão os botões de navegação-->
     </aside>
     <main>
+        <header>
+            <a href=""><!--vai para a página de conferir pedidos-->
+                <div>
+                    <img src="img/icons8-carrinho-de-compras-64 (1).png" alt="">
+                </div>
+                <p>CONFERIR</p>
+            </a>
+        </header>
+        <section class="container-items-menu" id="containerItemsMenu"><!--adicione os items de cada categoria dinamicamente-->
 
+        </section>
     </main>
+    <script>
+        const buttons = document.querySelectorAll('.categoria')
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                buttons.forEach(btn => btn.classList.remove('categoria-selected'));
+                this.classList.add('categoria-selected');
+            });
+        });
+    </script>
 </body>
 </html>

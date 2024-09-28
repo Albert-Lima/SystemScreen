@@ -12,7 +12,11 @@
     --var-ColorBaseDark1: #102332;
     --var-ColorBaseDark2: #18536a;
     --var-ColorBorderMenu: #3C5365;
+    --var-ColorBorderIcon: #FFFFFF;
+    --var-ColorBorderIconSelected: #F6934C;
     --var-ColorTilte: #FF9900;
+    --var-GradientClearPartIcon: #F6B24C;
+    --var-GradientDarkPartIcon: #AD4D07;
     --var-ColorDesc: #FFFFFF;
     --Var-ColorLettersButton: white;
 }
@@ -73,6 +77,7 @@ aside nav ul{
     justify-content: center;
     gap: 10px;
 }
+
 .container-categoria{
     display: flex;
     flex: column;
@@ -81,8 +86,6 @@ aside nav ul{
     border-bottom: 2px solid var(--var-ColorBorderMenu);
     width: 90%
 }
-
-
 .categoria{
     display: flex;
     flex-direction: column;
@@ -94,9 +97,148 @@ aside nav ul{
     background: none;
     border: none;
 }
+.border-icon-categoria{
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: 1px solid var(--var-ColorBorderIcon);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 100%;
+}
+.container-icon-categoria{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, var(--var-ColorBorderIcon), var(--var-ColorBorderIcon));
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-icon-categoria img{
+    height: 55px
+}
+.categoria p{
+    color: var(--var-ColorDesc);
+    font-family: var(--var-Font2);
+    font-size: 15pt;
+}
+/*menu selecionado*/
+.categoria-selected .border-icon-categoria{
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border: 1px solid var(--var-ColorBorderIconSelected);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    border-radius: 100%;
+}
+.categoria-selected .container-icon-categoria{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, var(--var-GradientDarkPartIcon), var(--var-GradientClearPartIcon));
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.categoria-selected .container-icon-categoria img{
+    filter: invert(100%);
+}
 
 
 main{
-    width: calc(100% - 150px);
+    width: calc(100% - 25%);
     height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    overflow-y: scroll;
+}
+main header{
+    height: 100px;
+    width: calc(100% - 25% - 2px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    background-color: var(--var-ColorBaseDark1);
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}
+main header a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: var(--var-ColorBaseClear);
+    height: 100px;
+    text-decoration: none;
+    font-family: var(--var-Font2);
+    font-size: 15pt;
+    color: white;
+}
+main header a img{
+    height: 40px;
+}
+
+.container-items-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+    gap: 20px;
+    width: 100%;
+}
+.options-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 40vh;
+    background-color: var(--var-ColorBorderIcon);
+    color: var(--var-ColorBaseDark1);
+    text-decoration: none;
+}
+.container-img-options-menu{
+    height: 100%;
+    width: 40vh;
+}
+.container-img-options-menu img{
+    height: 100%;
+    width: 40vh;
+    object-fit: cover;
+}
+.details-options-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    width: calc(100% - 40vh);
+    height: 100%;
+}
+.buttonAddPedido{
+    height: 80px;
+    background-color: var(--var-ColorBaseDark1);
+    width: 100%;
+    border: none;
+    color: var(--var-ColorDesc);
+    font-family: var(--var-Font2);
+    font-size: 40px;
 }
