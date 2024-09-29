@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/config.css">
+    <title>Configurar Pedido</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="img/icons8-casa-64 (1).png" alt="voltar ao início">
+        </a>
+        <div>
+            Logo do <br> restaurante
+        </div>
+    </header>
+    <section class="main-section">
+        <aside>
+            <div class="container-foto-pedido">
+                <img src="img/pexels-renestrgar-13814644.jpg" alt="foto do pedido">
+            </div>
+            <div class="desc">
+                <div class="pedido-title">
+                    Napolitana <!--adicionar dinamicamente-->
+                </div>
+                <div class="pedido-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+            </div>
+        </aside>
+        <main>
+            <section class="ToolBar">
+                <section class="valuesToolBar">
+                    <div class="ContainerInput">
+                        <div>
+                            <label for="inputQuantidade">Qtd</label>
+                            <input type="number" name="quantidade" class="inputToolBar" id="inputQuantidade">
+                        </div>
+                        <div>
+                            <label for="inputvalorUnidade">Valor Unitário</label>
+                            <input type="number" name="valorUnidade" class="inputToolBar" id="inputvalorUnidade">
+                        </div>
+                        <div>
+                            <label for="inputsubTotal">Subtotal</label>
+                            <input type="number" name="subTotal" class="inputToolBar" id="inputsubTotal">
+                        </div>
+                    </div>
+                    <div class="containerButtonControl">
+                        <div>
+                            <button>
+                                <img src="img/icons8-adicionar-100.png" alt="adicionar quantidade">
+                            </button><!--button add quantidade-->
+                            <button>
+                                <img src="img/icons8-menos-100.png" alt="diminuir a quantidade">
+                            </button><!--button remove quantidade-->
+                        </div>
+                        <div>
+                            <button>Cancelar</button>
+                            <button>Adicionar</button>
+                        </div>
+                    </div>
+                </section>
+                <button class="buttonOptions">OPICIONAIS</button>
+            </section>
+            <div id="pedido-opções"><!--opções aqui dinamicamente-->
+                <div class="pedido-title"></div>
+            </div>
+        </main>
+    </section>
+</body>
+</html>

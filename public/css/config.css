@@ -1,0 +1,233 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+    --var-Font1: "Inter", system-ui;
+    --var-Font2: "Open Sans", system-ui;
+    --var-ColorBaseClear: #2C7592;
+    --var-ColorBaseDark1: #102332;
+    --var-ColorBaseDark2: #18536a;
+    --var-ColorBorderMenu: #3C5365;
+    --var-ColorBackgroundNegativeButton: #585858;
+    --var-ColorBackgroundPositiveButton: #83CB88;
+    --var-ColorBorderIcon: #FFFFFF;
+    --var-ColorBorderIconSelected: #F6934C;
+    --var-ColorTilte: #FF9900;
+    --var-GradientClearPartIcon: #F6B24C;
+    --var-GradientDarkPartIcon: #AD4D07;
+    --var-ColorDesc: #FFFFFF;
+    --Var-ColorLettersButton: white;
+}
+
+/* Remove as setas do input no Chrome, Safari, Edge e Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Remove as setas do input no Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+header{
+    height: 80px;
+    width: calc(100% - 60px);
+    background-color: var(--var-ColorBaseDark1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+header a img{
+    height: 40px;
+}
+header div{
+    color: white;
+    font-family: var(--var-Font1);
+    text-align: center;
+}
+
+.main-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    width: 100%;
+}
+.main-section aside{
+    height: calc(100% - 60px);
+    width: calc(30% - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 30px;
+    overflow-y: scroll;
+}
+.container-foto-pedido{
+    width: calc(100%);
+    height: calc(30vw - 120px);
+}
+.container-foto-pedido img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+
+.main-section main{
+    height: calc(100% - 60px);
+    width: calc(70% - 60px);
+    padding: 30px;
+}
+.ToolBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 60%;
+    gap: 20px;
+}
+.valuesToolBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+.ContainerInput{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    height: 100%;
+    width: 30%;
+}
+.ContainerInput div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+}
+.ContainerInput div label{
+    color: var(--var-ColorBaseDark1);
+    font-family: var(--var-Font2);
+    font-size: 15pt;
+}
+.ContainerInput div input{
+    width: 100px;
+    padding: 30px;
+    height: 20%;
+    font-size: 15pt;
+    font-family: var(--var-Font1);
+}
+.containerButtonControl{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+}
+.containerButtonControl div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: translateY(30px);
+}
+.containerButtonControl div:nth-child(1) button{
+    background: none;
+    border: none;
+    height: 60px;
+    width: 60px;
+}
+.containerButtonControl div:nth-child(1) button img{
+    height: 60px;
+    width: 60px;
+}
+
+
+.containerButtonControl div:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+}
+.containerButtonControl div:nth-child(2) button{
+    width: 47%;
+    height: 100%;
+    font-size: 20pt;
+    font-family: var(--var-Font2);
+    border: none;
+    color: var(--var-ColorDesc);
+    text-shadow: 0px 10px 20px  rgba(0, 0, 0, 0.526);
+}
+.containerButtonControl div:nth-child(2) button:nth-child(1){
+    background-color: var(--var-ColorBackgroundNegativeButton);
+}
+.containerButtonControl div:nth-child(2) button:nth-child(2){
+    background-color: var(--var-ColorBackgroundPositiveButton);
+}
+
+.buttonOptions{
+    width: 100%;
+    height: 70px;
+    border: none;
+    background-color: var(--var-ColorBaseDark1);
+    color: var(--var-ColorDesc);
+    font-size: 15pt;
+    font-family: var(--var-Font2);
+}
+
+@media (max-height: 1000px) {
+    .ContainerInput div input{
+        height: 20px;
+    }
+}
+@media (max-height: 920px) {
+    .ContainerInput div input{
+        height: 0px;
+    }
+}
+@media (max-height: 810px) {
+    .ContainerInput div input{
+        padding: 20px;
+    }
+}
+@media (max-height: 720px) {
+    .ContainerInput div{
+        gap: 3px;
+    }
+    .containerButtonControl div:nth-child(2){
+        height: 40px;
+    }
+    .ContainerInput div input{
+        padding: 12px;
+    }
+    .buttonOptions{
+        height: 50px;
+    }
+}
+@media (max-height: 670px) {
+    .ToolBar{
+        height: 70%;;
+    }
+}
+
