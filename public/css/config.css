@@ -400,11 +400,6 @@ header div{
     background-size: 100%;
 }
 
-
-
-
-
-
 .buttonPoupUp{
     width: calc(100% - 60px);
     position: absolute;
@@ -446,4 +441,34 @@ header div{
 }
 .button-closePoupUp img{
     height: 100%;
+}
+
+
+@media (max-width: 1000px){
+    .container-check{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        font-size: 12pt;
+        font-family: var(--var-Font2);
+        color: var(--var-ColorBaseDark1);
+    }
+}
+@media (max-width: 900px) {
+    .Title-PoupUp{
+        font-size: 12pt;
+    }
+    .container-check label{
+        gap: 5px;
+        cursor: pointer;
+        transform: translateX(-10px);
+    }
+}
+@media (max-width: 800px) {
+    .container-info-poupup{
+        width: calc(50% - 20px);
+        height: calc(100% - 20px);
+        padding: 10px;
+    }
 }

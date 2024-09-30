@@ -43,20 +43,20 @@
                             <input type="number" name="quantidade" class="inputToolBar" id="inputQuantidade" placeholder="1" value="1">
                         </div>
                         <div>
-                            <label for="inputvalorUnidade">Valor Unitário</label>
-                            <input type="number" name="valorUnidade" class="inputToolBar" id="inputvalorUnidade" placeholder="R$ 50">
+                            <label for="inputvalorUnidade">Valor Unitário(R$)</label>
+                            <input type="number" name="valorUnidade" class="inputToolBar" id="inputvalorUnidade" placeholder="R$ 50" value="50"><!--ovalor do produto deve ser passado diretamente para dento de value-->
                         </div>
                         <div>
-                            <label for="inputsubTotal">Subtotal</label>
-                            <input type="number" name="subTotal" class="inputToolBar" id="inputsubTotal" placeholder="R$ 50">
+                            <label for="inputsubTotal">Subtotal(R$)</label>
+                            <input type="number" name="subTotal" class="inputToolBar" id="inputsubTotal" placeholder="R$ 50" value="50"><!--ovalor do produto deve ser passado diretamente para dento de value-->
                         </div>
                     </div>
                     <div class="containerButtonControl">
                         <div>
-                            <button>
+                            <button class="bttAdd">
                                 <img src="img/icons8-adicionar-100.png" alt="adicionar quantidade">
                             </button><!--button add quantidade-->
-                            <button>
+                            <button class="bttRemove">
                                 <img src="img/icons8-menos-100.png" alt="diminuir a quantidade">
                             </button><!--button remove quantidade-->
                         </div>
@@ -84,21 +84,21 @@
                         <label for="" class="labelCheckCustom">
                             <input type="checkbox" name="" class="checkbox">
                             <div class="checkBtt"></div>
-                            Tradicional (sem recheio)
+                            Tradicional sem recheio (R$ 0)
                         </label>
                     </div>
                     <div class="container-check">
                         <label for="" class="labelCheckCustom">
                             <input type="checkbox" name="" class="checkbox">
                             <div class="checkBtt"></div>
-                            Catupiry
+                            Catupiry (R$ 5)
                         </label>
                     </div>
                     <div class="container-check">
                         <label for="" class="labelCheckCustom">
                             <input type="checkbox" name="" class="checkbox">
                             <div class="checkBtt"></div>
-                            Cheddar
+                            Cheddar (R$ 5)
                         </label>
                     </div>
                 </section>
@@ -143,6 +143,54 @@
 
         buttonOptions.addEventListener("click", ()=>{
             containerpoupUp.style.display = "flex"
+        })
+
+
+        var bttAdd = document.querySelector(".bttAdd");
+        var bttRemove = document.querySelector(".bttRemove");
+        var inputToolBar = document.querySelectorAll(".inputToolBar");
+
+        // Inicializa os valores dos inputs
+        var subtotal = parseFloat(inputToolBar[2].value) || 0;
+        var unidadevalor = parseFloat(inputToolBar[1].value) || 0;
+
+        function updateSubtotal() {
+            // Pega a quantidade atual, garantindo que sempre seja um número válido
+            let qtd = parseInt(inputToolBar[0].value) || 1;
+
+            // Recalcula o subtotal com base na quantidade e o valor unitário
+            subtotal = unidadevalor * qtd;
+
+            // Atualiza o valor do input correspondente ao subtotal
+            inputToolBar[2].value = subtotal.toFixed(2);
+        }
+
+        // Função para adicionar quantidade
+        bttAdd.addEventListener("click", () => {
+            let qtd = parseInt(inputToolBar[0].value) || 0;
+            
+            // Incrementa a quantidade
+            inputToolBar[0].value = qtd + 1;
+
+            // Atualiza o subtotal
+            updateSubtotal();
+        });
+
+        // Função para remover quantidade (não permite menor que 1)
+        bttRemove.addEventListener("click", () => {
+            let qtd = parseInt(inputToolBar[0].value) || 1;
+
+            // Não permite que a quantidade seja menor que 1
+            if (qtd > 1) {
+                inputToolBar[0].value = qtd - 1;
+                updateSubtotal();
+            }
+        });
+        
+        var buttonContinue = document.querySelector(".buttonContinue")
+
+        buttonContinue.addEventListener("click", ()=>{
+            containerpoupUp.style.display = "none"
         })
     </script>
 </body>
