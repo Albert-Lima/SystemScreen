@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <a href="/">
+        <a href="/SystemScreen">
             <img src="img/icons8-casa-64 (1).png" alt="voltar ao início">
         </a>
         <div>
@@ -40,15 +40,15 @@
                     <div class="ContainerInput">
                         <div>
                             <label for="inputQuantidade">Qtd</label>
-                            <input type="number" name="quantidade" class="inputToolBar" id="inputQuantidade">
+                            <input type="number" name="quantidade" class="inputToolBar" id="inputQuantidade" placeholder="1" value="1">
                         </div>
                         <div>
                             <label for="inputvalorUnidade">Valor Unitário</label>
-                            <input type="number" name="valorUnidade" class="inputToolBar" id="inputvalorUnidade">
+                            <input type="number" name="valorUnidade" class="inputToolBar" id="inputvalorUnidade" placeholder="R$ 50">
                         </div>
                         <div>
                             <label for="inputsubTotal">Subtotal</label>
-                            <input type="number" name="subTotal" class="inputToolBar" id="inputsubTotal">
+                            <input type="number" name="subTotal" class="inputToolBar" id="inputsubTotal" placeholder="R$ 50">
                         </div>
                     </div>
                     <div class="containerButtonControl">
@@ -70,6 +70,80 @@
             </section>
         </main>
     </section>
-    
+    <section id="containerpoupUp">
+        <section class="PoupUp">
+            <section class="img-poupup-product">
+                <img src="img/pexels-renestrgar-13814644.jpg" alt="imagem do produto">
+            </section>
+            <section class="container-info-poupup">
+                <section class="Title-PoupUp">
+                    Qual borda você deseja?
+                </section>
+                <section class="container-formCheck">
+                    <div class="container-check">
+                        <label for="" class="labelCheckCustom">
+                            <input type="checkbox" name="" class="checkbox">
+                            <div class="checkBtt"></div>
+                            Tradicional (sem recheio)
+                        </label>
+                    </div>
+                    <div class="container-check">
+                        <label for="" class="labelCheckCustom">
+                            <input type="checkbox" name="" class="checkbox">
+                            <div class="checkBtt"></div>
+                            Catupiry
+                        </label>
+                    </div>
+                    <div class="container-check">
+                        <label for="" class="labelCheckCustom">
+                            <input type="checkbox" name="" class="checkbox">
+                            <div class="checkBtt"></div>
+                            Cheddar
+                        </label>
+                    </div>
+                </section>
+                <section class="buttonPoupUp">
+                    <button class="buttonReturn">
+                        <img src="img/icons8-esquerda-96.png" alt="voltar">
+                    </button>
+                    <button class="buttonContinue">
+                        CONFIRMAR
+                    </button>
+                </section>
+            </section>
+        </section>
+        <button class="button-closePoupUp">
+            <img src="img/icons8-excluir-128.png" alt="cancelar">
+        </button>
+    </section>
+    <script>
+        document.querySelectorAll('.labelCheckCustom').forEach(label => {
+            label.addEventListener('click', function() {
+                const checkbox = this.querySelector('input[type="checkbox"');
+
+                // Se o checkbox já estiver marcado, apenas alterna
+                if (!checkbox.checked) {
+                    // Desmarcar todos os outros checkboxes
+                    document.querySelectorAll('.checkbox').forEach(cb => {
+                        cb.checked = false;
+                    });
+                }
+                // Marca o checkbox clicado
+                checkbox.checked = !checkbox.checked; // Alterna o estado do checkbox
+            });
+        });
+
+        var buttonOptions = document.querySelector(".buttonOptions")
+        var bttClosePoupUp = document.querySelector(".button-closePoupUp")
+        var containerpoupUp = document.querySelector("#containerpoupUp")
+
+        bttClosePoupUp.addEventListener("click", ()=>{
+            containerpoupUp.style.display = "none"
+        })
+
+        buttonOptions.addEventListener("click", ()=>{
+            containerpoupUp.style.display = "flex"
+        })
+    </script>
 </body>
 </html>
