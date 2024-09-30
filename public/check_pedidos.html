@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/check.css">
+    <title>Verificar pedidos</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="img/icons8-casa-64 (1).png" alt="home">
+        </a>
+        <div style="color: white;">
+            logo do <br> resturante
+        </div>
+    </header>
+    <main>
+        <div class="header-main">
+            Pedidos
+        </div>
+        <section class="container-card-pedidos">
+            <div class="card">
+                <div class="container-img-product">
+                    <img src="img/pexels-renestrgar-13814644.jpg" alt="imagem do produto" class="imgProduct">
+                </div>
+                <div class="container-info-produto">
+                    <div>
+                        <h2>1 - Nome do produto</h2><!--deve ser adicionado a quantidade e o nome do produto-->
+                        <p>valor: R$ 55,00</p><!--deve ser adicionado o valor com os opcionais-->
+                    </div>
+                    <button class="bttRemoveProduct">
+                        <img src="img/icons8-fechar-janela-96.png" alt="remover produto">
+                    </button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container-img-product">
+                    <img src="img/pexels-jonathanborba-2983100.jpg" alt="imagem do produto" class="imgProduct">
+                </div>
+                <div class="container-info-produto">
+                    <div>
+                        <h2>2 - Nome do produto</h2><!--deve ser adicionado a quantidade e o nome do produto-->
+                        <p>valor: R$ 30,00</p><!--deve ser adicionado o valor com os opcionais-->
+                    </div>
+                    <button class="bttRemoveProduct">
+                        <img src="img/icons8-fechar-janela-96.png" alt="remover produto">
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <button class="ReturnToMain">VOLTAR</button>
+        <button class="EnviarPedido">ENVIAR</button>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Seleciona todos os botões de remover produto
+            const removeButtons = document.querySelectorAll(".bttRemoveProduct");
+
+            removeButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    // Encontra o card pai do botão e remove do DOM
+                    const card = button.closest(".card");
+                    if (card) {
+                        card.remove();
+                    }
+                });
+            });
+
+            const returnToMainButton = document.querySelector(".ReturnToMain");
+
+            returnToMainButton.addEventListener("click", () => {
+                window.location.href = "https://albert-lima.github.io/SystemScreen/public/main.html";
+            });
+        });
+    </script>
+</body>
+</html>
