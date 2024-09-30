@@ -61,8 +61,8 @@
                             </button><!--button remove quantidade-->
                         </div>
                         <div>
-                            <button>Cancelar</button>
-                            <button>Adicionar</button>
+                            <button class="buttonCancel">Cancelar</button>
+                            <button class="buttonAdicionar">Adicionar</button>
                         </div>
                     </div>
                 </section>
@@ -192,6 +192,22 @@
         buttonContinue.addEventListener("click", ()=>{
             containerpoupUp.style.display = "none"
         })
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Seleciona os botões
+            const cancelButton = document.querySelector(".buttonCancel");
+            const addButton = document.querySelector(".buttonAdicionar");
+
+            // Adiciona evento de clique ao botão de cancelar
+            cancelButton.addEventListener("click", () => {
+                window.location.href = "https://albert-lima.github.io/SystemScreen/public/main.html";
+            });
+
+            // Adiciona evento de clique ao botão de adicionar
+            addButton.addEventListener("click", () => {
+                window.location.href = "https://albert-lima.github.io/SystemScreen/public/main.html";
+            });
+        });
     </script>
 </body>
 </html>
