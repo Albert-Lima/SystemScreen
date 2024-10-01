@@ -130,16 +130,16 @@ header div{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 80%;
+    height: max-content;
     gap: 20px;
 }
 .valuesToolBar{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     width: 100%;
-    height: 50vw;
+    height: 330px;
 }
 .ContainerInput{
     display: flex;
@@ -154,16 +154,17 @@ header div{
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    gap: 10px;
+    gap: 3px;
 }
 .ContainerInput div label{
     color: var(--var-ColorBaseDark1);
+    font-weight: 600;
     font-family: var(--var-Font2);
     font-size: 15pt;
 }
 .ContainerInput div input{
     width: 100px;
-    padding: 30px;
+    padding: 20px;
     height: 20%;
     font-size: 15pt;
     font-family: var(--var-Font1);
@@ -262,39 +263,15 @@ header div{
 }
 
 
-@media (max-height: 1000px) {
-    .ContainerInput div input{
-        height: 20px;
-    }
-}
-@media (max-height: 920px) {
-    .ContainerInput div input{
-        height: 0px;
-    }
-}
-@media (max-height: 810px) {
-    .ContainerInput div input{
-        padding: 20px;
-    }
-}
 @media (max-height: 720px) {
-    .ContainerInput div{
-        gap: 3px;
-    }
     .containerButtonControl div:nth-child(2){
         height: 40px;
-    }
-    .ContainerInput div input{
-        padding: 12px;
     }
     .buttonOptions{
         height: 70px;
     }
 }
 @media (max-height: 670px) {
-    .ToolBar{
-        height: 80%;
-    }
     .containerButtonControl div:nth-child(1){
         display: flex;
         flex-direction: column;
@@ -312,9 +289,6 @@ header div{
         height: 50px;
         width: 50px;
     }
-    .ToolBar{
-        height: 85%;
-    }
     
 }
 @media (max-height: 550px) {
@@ -324,11 +298,6 @@ header div{
         align-items: center;
         justify-content: end;
         gap: 10px;
-    }
-}
-@media (max-height: 500px) {
-    .valuesToolBar{
-        height: 100%;
     }
 }
 

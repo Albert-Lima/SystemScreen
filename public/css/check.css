@@ -79,13 +79,13 @@ main{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     color: white;
     font-size: 15pt;
     font-family: var(--var-Font2);
     padding-top: 30px;
     padding-bottom: 30px;
-    width: calc(100% - 30px);
+    width: calc(100% - 60px);
     position: absolute;
     left: 30px;
     top: 0px;
