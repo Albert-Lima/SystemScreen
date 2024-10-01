@@ -46,7 +46,7 @@ footer{
     width: calc(100% - 60px);
     padding: 30px;
     position: absolute;
-    bottom: 30px;
+    bottom: 0px;
 }
 footer button{
     height: 50px;
@@ -97,7 +97,10 @@ main{
     align-items: start;
     justify-content: start;
     gap: 30px;
-    margin-top: 80px;
+    margin-top: 50px;
+    width: 100%;
+    height: calc(100% - 135px);
+    overflow-y: scroll;
 }
 .card{
     display: flex;
@@ -105,17 +108,22 @@ main{
     align-items: center;
     justify-content: start;
     height: 150px;
-    width: 500px;
+    width: 100%;
     background-color: white;
+    border-radius: 10px;
 }
 .container-img-product{
     height: 150px;
     width: 150px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .imgProduct{
     height: 150px;
     width: 150px;
     object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .container-info-produto{
     display: flex;
@@ -123,6 +131,7 @@ main{
     align-items: center;
     justify-content: space-between;
     height: 100%;
+    width: 100%;
 }
 .container-info-produto div h2, .container-info-produto div p{
     font-size: 12pt;
@@ -130,7 +139,7 @@ main{
     color: var(--var-ColorBaseDark1);
 }
 .container-info-produto div{
-    width: calc(250px - 40px);
+    width: 100%;
     height: calc(100% - 40px);
     padding: 20px;
     display: flex;
@@ -142,4 +151,44 @@ main{
     display: block;
     background: none;
     border: none;
+}
+.bttRemoveProduct img{
+    height: 60px;
+    width: 60px;
+}
+
+
+@media (max-width: 900px){
+    .card{
+        height: 130px;
+    }
+    .container-img-product{
+        height: 130px;
+        width: 130px;
+    }
+    .imgProduct{
+        height: 130px;
+        width: 130px;
+    }
+    .bttRemoveProduct{
+        display: block;
+        background: none;
+        border: none;
+    }
+    .container-card-pedidos{
+        height: calc(100% - 105px);
+    }
+    footer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 60px);
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    footer button{
+        height: 40px;
+        font-size: 13pt;
+    }
 }
