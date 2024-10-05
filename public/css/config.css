@@ -146,8 +146,9 @@ header div{
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    height: 100%;
+    height: calc(100% - 40px);
     width: 30%;
+    padding-bottom: 40px;
 }
 .ContainerInput div{
     display: flex;
@@ -155,6 +156,7 @@ header div{
     align-items: start;
     justify-content: center;
     gap: 3px;
+    width: 100%;
 }
 .ContainerInput div label{
     color: var(--var-ColorBaseDark1);
@@ -164,11 +166,31 @@ header div{
 }
 .ContainerInput div input{
     width: 100px;
-    padding: 20px;
-    height: 20%;
-    font-size: 15pt;
+    padding: 15px;
+    height: 25%;
+    font-size: 18pt;
     font-family: var(--var-Font1);
+    border-radius: 8px;
+    border: 2px solid var(--var-ColorBorderIconSelected);
+    outline: none;
+    padding-left: 35px;
 }
+#inputQuantidade{
+    width: 40px;
+    font-size: 22pt;
+    font-weight: 600;
+}
+#inputvalorUnidade, #inputsubTotal{
+    padding: 0px;
+    border: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 18pt;
+    font-weight: 600;
+    color: black;
+}
+
+
 .containerButtonControl{
     height: 100%;
     width: 70%;
@@ -187,13 +209,23 @@ header div{
 }
 .containerButtonControl div:nth-child(1) button{
     background: none;
-    border: none;
+    border: 3px solid black;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 60px;
     width: 60px;
 }
+.containerButtonControl div:nth-child(1) button:active{
+    border: 3px solid var(--var-ColorBorderIconSelected);
+    scale: 1.1;
+    transition: 0.2s;
+}
 .containerButtonControl div:nth-child(1) button img{
-    height: 60px;
-    width: 60px;
+    height: 30px;
+    width: 30px;
 }
 
 
@@ -218,8 +250,16 @@ header div{
 .containerButtonControl div:nth-child(2) button:nth-child(1){
     background-color: var(--var-ColorBackgroundNegativeButton);
 }
+.containerButtonControl div:nth-child(2) button:nth-child(1):hover{
+    border: 3px solid #313131;
+    transition: 0.1s;
+}
 .containerButtonControl div:nth-child(2) button:nth-child(2){
     background-color: var(--var-ColorBackgroundPositiveButton);
+}
+.containerButtonControl div:nth-child(2) button:nth-child(2):hover{
+    border: 3px solid #427646;
+    transition: 0.1s;
 }
 
 .buttonOptions{
@@ -232,6 +272,14 @@ header div{
     font-size: 15pt;
     font-family: var(--var-Font2);
 }
+.buttonOptions:hover{
+    border: 3px solid var(--var-ColorBaseClear);
+    transition: 0.1s;
+}
+
+
+
+
 @media (max-width: 1140px) {
     .ContainerInput{
         width: 40%;
@@ -286,8 +334,8 @@ header div{
         width: 50px;
     }
     .containerButtonControl div:nth-child(1) button img{
-        height: 50px;
-        width: 50px;
+        height: 25px;
+        width: 25px;
     }
     
 }
