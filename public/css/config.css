@@ -221,7 +221,6 @@ header div{
 .containerButtonControl div:nth-child(1) button:active{
     border: 3px solid var(--var-ColorBorderIconSelected);
     scale: 1.1;
-    transition: 0.2s;
 }
 .containerButtonControl div:nth-child(1) button img{
     height: 30px;
