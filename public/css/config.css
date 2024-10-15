@@ -375,15 +375,20 @@ header div{
     width: 80%;
     background-color: white;
     background-color: 0px 0px 10px 5px black;
+    border-radius: 10px;
 }
 .img-poupup-product{
     width: 50%;
     height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .img-poupup-product img{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .container-info-poupup{
     position: relative;
@@ -395,14 +400,12 @@ header div{
     align-items: start;
     justify-content: start;
 }
-.Title-PoupUp{
-    height: 50px;
-    color: black;
-    font-weight: 700;
-    font-size: 18pt;
-    font-family: var(--var-Font1);
+.step {
+    display: none;
 }
-.container-formCheck{
+
+.active-step {
+    display: block;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -411,6 +414,14 @@ header div{
     height: 80%;
     width: 100%;
     overflow-y: scroll;
+    border: none;
+}
+.Title-PoupUp{
+    height: 50px;
+    color: black;
+    font-weight: 700;
+    font-size: 18pt;
+    font-family: var(--var-Font1);
 }
 .container-check{
     display: flex;
@@ -492,6 +503,7 @@ header div{
     width: 50px;
     background-color: var(--var-ColorBaseDark1);
     border: none;
+    border-radius: 5px;
 }
 .button-closePoupUp img{
     height: 100%;
@@ -531,17 +543,20 @@ header div{
 }
 
 @media (max-height: 650px) {
-    .container-formCheck{
+    .active-step{
         height: 75%;
     }
 }
 @media (max-height: 540px) {
-    .container-formCheck{
+    .active-step{
         height: 70%;
     }
 }
 @media (max-height: 460px) {
-    .container-formCheck{
+    .active-step{
         height: 65%;
     }
 }
+
+
+

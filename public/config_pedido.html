@@ -30,7 +30,7 @@
             </div>
             <div id="pedido-options">
                 <h2 class="pedido-title">OPCIONAIS</h2>
-                <div id="verifyOptions"><!--opcionais serão coletados daqui-->
+                <div id="verifyOptions"><!--opcionais serão postos aqui daqui-->
                 </div>
             </div>
         </aside>
@@ -76,102 +76,43 @@
                 <img src="img/pexels-renestrgar-13814644.jpg" alt="imagem do produto">
             </section>
             <section class="container-info-poupup">
-                <section class="Title-PoupUp">
-                    Qual borda você deseja?
-                </section>
-                <section class="container-formCheck">
+                <fieldset class="step active-step container-formCheck">
+                    <legend class="Title-PoupUp">Qual borda você deseja?</legend>
                     <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
+                        <label class="labelCheckCustom">
+                            <input type="checkbox" name="Borda Catupiry" value="5" class="checkbox" required><!--o value deve ser o preço do opcional-->
                             <div class="checkBtt"></div>
                             Catupiry (R$ 5)
                         </label>
                     </div>
                     <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
+                        <label class="labelCheckCustom">
+                            <input type="checkbox" name="Borda Tradicional sem recheio" value="0" class="checkbox"><!--o name deve conter o nome do opicional-->
                             <div class="checkBtt"></div>
                             Tradicional sem recheio (R$ 0)
                         </label>
                     </div>
+                </fieldset>
+
+                <!-- Segundo bloco de checkbox -->
+                <fieldset class="step">
+                    <legend class="Title-PoupUp">Qual cobertura você deseja?</legend>
                     <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
-                            <div class="checkBtt"></div>
-                            Tradicional sem recheio (R$ 0)
-                        </label>
-                    </div>
-                    <div class="container-check">
-                        <label for="" class="labelCheckCustom">
-                            <input type="checkbox" name="" class="checkbox">
+                        <label class="labelCheckCustom">
+                            <input type="checkbox" name="cobertura Cheddar" value="5" class="checkbox" required>
                             <div class="checkBtt"></div>
                             Cheddar (R$ 5)
                         </label>
                     </div>
-                </section>
+                    <div class="container-check">
+                        <label class="labelCheckCustom">
+                            <input type="checkbox" name="sem cobertura" value="0" class="checkbox">
+                            <div class="checkBtt"></div>
+                            Sem Cobertura (R$ 0)
+                        </label>
+                    </div>
+                </fieldset>
+
                 <section class="buttonPoupUp">
                     <button class="buttonReturn">
                         <img src="img/icons8-esquerda-96.png" alt="voltar">
@@ -187,96 +128,136 @@
         </button>
     </section>
     <script>
-        document.querySelectorAll('.labelCheckCustom').forEach(label => {
-            label.addEventListener('click', function() {
-                const checkbox = this.querySelector('input[type="checkbox"');
+        document.querySelectorAll('.step').forEach(step => {
+            const checkboxes = step.querySelectorAll('.checkbox');
 
-                // Se o checkbox já estiver marcado, apenas alterna
-                if (!checkbox.checked) {
-                    // Desmarcar todos os outros checkboxes
-                    document.querySelectorAll('.checkbox').forEach(cb => {
-                        cb.checked = false;
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    // Desmarca todos os checkboxes do mesmo fieldset
+                    checkboxes.forEach(cb => {
+                        if (cb !== checkbox) {
+                            cb.checked = false;
+                        }
                     });
-                }
-                // Marca o checkbox clicado
-                checkbox.checked = !checkbox.checked; // Alterna o estado do checkbox
+                });
             });
         });
 
-        var buttonOptions = document.querySelector(".buttonOptions")
-        var bttClosePoupUp = document.querySelector(".button-closePoupUp")
-        var containerpoupUp = document.querySelector("#containerpoupUp")
+        var buttonOptions = document.querySelector(".buttonOptions");
+        var bttClosePoupUp = document.querySelector(".button-closePoupUp");
+        var containerpoupUp = document.querySelector("#containerpoupUp");
 
-        bttClosePoupUp.addEventListener("click", ()=>{
-            containerpoupUp.style.display = "none"
-        })
+        bttClosePoupUp.addEventListener("click", () => {
+            containerpoupUp.style.display = "none";
+        });
 
-        buttonOptions.addEventListener("click", ()=>{
-            containerpoupUp.style.display = "flex"
-        })
-
+        buttonOptions.addEventListener("click", () => {
+            containerpoupUp.style.display = "flex";
+        });
 
         var bttAdd = document.querySelector(".bttAdd");
         var bttRemove = document.querySelector(".bttRemove");
         var inputToolBar = document.querySelectorAll(".inputToolBar");
 
         // Inicializa os valores dos inputs
+        var totalCheckboxValue = 0;
         var subtotal = parseFloat(inputToolBar[2].value) || 0;
         var unidadevalor = parseFloat(inputToolBar[1].value) || 0;
 
         function updateSubtotal() {
-            // Pega a quantidade atual, garantindo que sempre seja um número válido
             let qtd = parseInt(inputToolBar[0].value) || 1;
-
-            // Recalcula o subtotal com base na quantidade e o valor unitário
             subtotal = unidadevalor * qtd;
-
-            // Atualiza o valor do input correspondente ao subtotal
             inputToolBar[2].value = subtotal.toFixed(2);
         }
 
         // Função para adicionar quantidade
         bttAdd.addEventListener("click", () => {
             let qtd = parseInt(inputToolBar[0].value) || 0;
-            
-            // Incrementa a quantidade
             inputToolBar[0].value = qtd + 1;
-
-            // Atualiza o subtotal
             updateSubtotal();
         });
 
         // Função para remover quantidade (não permite menor que 1)
         bttRemove.addEventListener("click", () => {
             let qtd = parseInt(inputToolBar[0].value) || 1;
-
-            // Não permite que a quantidade seja menor que 1
             if (qtd > 1) {
                 inputToolBar[0].value = qtd - 1;
                 updateSubtotal();
             }
         });
-        
-        var buttonContinue = document.querySelector(".buttonContinue")
-
-        buttonContinue.addEventListener("click", ()=>{
-            containerpoupUp.style.display = "none"
-        })
 
         document.addEventListener("DOMContentLoaded", () => {
-            // Seleciona os botões
             const cancelButton = document.querySelector(".buttonCancel");
             const addButton = document.querySelector(".buttonAdicionar");
 
-            // Adiciona evento de clique ao botão de cancelar
             cancelButton.addEventListener("click", () => {
                 window.location.href = "https://albert-lima.github.io/SystemScreen/public/main.html";
             });
 
-            // Adiciona evento de clique ao botão de adicionar
             addButton.addEventListener("click", () => {
                 window.location.href = "https://albert-lima.github.io/SystemScreen/public/main.html";
             });
+        });
+
+        var currentStep = 0;
+        var steps = document.querySelectorAll(".step");
+        var verifyOptions = document.querySelector("#verifyOptions");
+
+        // Função para ir para o próximo passo
+        function nextStep() {
+            if (currentStep < steps.length - 1) {
+                steps[currentStep].classList.remove("active-step");
+                currentStep++;
+                steps[currentStep].classList.add("active-step");
+            } else {
+                collectCheckboxValues(); // Coletar os valores no último passo
+            }
+        }
+
+        // Função para voltar para o passo anterior
+        function prevStep() {
+            if (currentStep > 0) {
+                steps[currentStep].classList.remove("active-step");
+                currentStep--;
+                steps[currentStep].classList.add("active-step");
+            }
+        }
+
+        // Função para coletar os valores dos checkboxes selecionados
+        function collectCheckboxValues() {
+            caixa = []; // Limpa o array antes de adicionar novos valores
+            totalCheckboxValue = 0; // Limpa o total dos checkboxes
+
+            document.querySelectorAll(".checkbox:checked").forEach(checkbox => {
+                caixa.push(checkbox.name);
+                totalCheckboxValue += parseFloat(checkbox.value); // Adiciona o valor do checkbox ao total
+            });
+
+            console.log("Valores selecionados:", caixa); // Exibe no console os valores selecionados
+
+            // Adiciona os valores do array caixa na div verifyOptions
+            verifyOptions.innerHTML = ""; // Limpa a div antes de adicionar novos valores
+            caixa.forEach(valor => {
+                const p = document.createElement("p");
+                p.textContent = valor; // Define o texto do parágrafo como o valor do checkbox
+                verifyOptions.appendChild(p); // Adiciona o parágrafo à div
+            });
+
+            // Atualiza o subtotal com o total dos checkboxes e o valor unitário
+            unidadevalor = parseFloat(inputToolBar[1].value); // Reinicializa unidadevalor
+            unidadevalor += totalCheckboxValue; // Adiciona o total dos checkboxes
+            
+            updateSubtotal(); // Atualiza o subtotal
+            console.log(inputToolBar[1].value)
+            containerpoupUp.style.display = "none"; // Fecha o popup
+        }
+
+        document.querySelector(".buttonContinue").addEventListener("click", () => {
+            nextStep();
+        });
+
+        document.querySelector(".buttonReturn").addEventListener("click", () => {
+            prevStep();
         });
     </script>
 </body>
