@@ -1,3 +1,4 @@
+/*css correspondente á página config_pedido.html*/
 *{
     margin: 0px;
     padding: 0px;
@@ -117,8 +118,6 @@ header div{
     font-family: var(--var-Font2);
     color: var(--var-ColorBaseDark1);
 }
-
-
 
 .main-section main{
     height: calc(100% - 60px);
@@ -275,9 +274,6 @@ header div{
     border: 3px solid var(--var-ColorBaseClear);
     transition: 0.1s;
 }
-
-
-
 
 @media (max-width: 1140px) {
     .ContainerInput{
